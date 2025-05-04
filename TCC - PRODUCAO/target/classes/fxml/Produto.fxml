@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<VBox spacing="15" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="com.example.controllers.ProdutoController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    <HBox spacing="20" alignment="CENTER_LEFT">
+        <Label text="Cadastro de Produtos" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    </HBox>
+    <Separator/>
+    <GridPane hgap="15" vgap="10">
+        <Label text="Nome:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtProdutoNome"
+                   promptText="Digite o nome do produto"
+                   GridPane.columnIndex="0"
+                   GridPane.rowIndex="1"
+                   GridPane.hgrow="ALWAYS"/>
+        <Label text="Lote:" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtProdutoLote"
+                   promptText="Número do lote"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="1"
+                   GridPane.hgrow="ALWAYS"/>
+    </GridPane>
+    <GridPane hgap="15" vgap="10">
+        <Label text="SKU:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtProdutoSku"
+                   promptText="Código SKU"
+                   GridPane.columnIndex="0"
+                   GridPane.rowIndex="1"
+                   GridPane.hgrow="ALWAYS"/>
+    </GridPane>
+    <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 10 0 0 0;">
+        <Button text="Salvar"
+                onAction="#salvarProduto"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white;">
+            <graphic>
+                <ImageView fitHeight="16" fitWidth="16">
+                    <Image url="@salvar.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+    </HBox>
+    <VBox spacing="10" VBox.vgrow="ALWAYS">
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Filtro:" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="filtroNome"
+                       promptText="Busque por nome, lote ou SKU"
+                       HBox.hgrow="ALWAYS"/>
+        </HBox>
+        <TableView fx:id="tableProdutos" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colProdutoId" text="ID" />
+                <TableColumn fx:id="colProdutoNome" text="Nome" />
+                <TableColumn fx:id="colProdutoLote" text="Lote" />
+                <TableColumn fx:id="colProdutoSku" text="SKU" />
+            </columns>
+        </TableView>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="Excluir"
+                    onAction="#excluirProduto"
+                    style="-fx-background-color: #F44336; -fx-text-fill: white;">
+                <graphic>
+                    <ImageView fitHeight="16" fitWidth="16">
+                        <Image url="@excluir.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button text="Editar"
+                    onAction="#editarProduto"
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white;">
+                <graphic>
+                    <ImageView fitHeight="16" fitWidth="16">
+                        <Image url="@editar.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </HBox>
+    </VBox>
+</VBox>

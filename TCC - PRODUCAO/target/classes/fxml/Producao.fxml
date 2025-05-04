@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<VBox spacing="15" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="com.example.controllers.ProducaoController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    <HBox spacing="20" alignment="CENTER_LEFT">
+        <Label text="Registro de Produção" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    </HBox>
+    <Separator/>
+    <GridPane hgap="15" vgap="10">
+        <Label text="Funcionário:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <ComboBox fx:id="cmbFuncionario"
+                  promptText="Selecione o funcionário"
+                  GridPane.columnIndex="0"
+                  GridPane.rowIndex="1"
+                  GridPane.hgrow="ALWAYS"/>
+        <Label text="Máquina:" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <ComboBox fx:id="cmbMaquina"
+                  promptText="Selecione a máquina"
+                  GridPane.columnIndex="1"
+                  GridPane.rowIndex="1"
+                  GridPane.hgrow="ALWAYS"/>
+    </GridPane>
+    <GridPane hgap="15" vgap="10">
+        <Label text="Produto:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <ComboBox fx:id="cmbProduto"
+                  promptText="Selecione o produto"
+                  GridPane.columnIndex="0"
+                  GridPane.rowIndex="1"
+                  GridPane.hgrow="ALWAYS"/>
+        <Label text="Quantidade:" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtQuantidade"
+                   promptText="Quantidade produzida"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="1"
+                   GridPane.hgrow="ALWAYS"/>
+    </GridPane>
+    <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 10 0 0 0;">
+        <Button text="Registrar"
+                onAction="#registrarProducao"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white;">
+            <graphic>
+                <ImageView fitHeight="16" fitWidth="16">
+                    <Image url="@salvar.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+    </HBox>
+    <VBox spacing="10" VBox.vgrow="ALWAYS">
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Filtro:" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="filtroNome"
+                       promptText="Busque por funcionário, máquina ou produto"
+                       HBox.hgrow="ALWAYS"/>
+        </HBox>
+        <TableView fx:id="tableProducao" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" />
+                <TableColumn fx:id="colFuncionario" text="Funcionário" />
+                <TableColumn fx:id="colMaquina" text="Máquina" />
+                <TableColumn fx:id="colProduto" text="Produto" />
+                <TableColumn fx:id="colQuantidade" text="Quantidade" />
+                <TableColumn fx:id="colDataProducao" text="Data Produção" />
+            </columns>
+        </TableView>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="Excluir"
+                    onAction="#excluirProducao"
+                    style="-fx-background-color: #F44336; -fx-text-fill: white;">
+                <graphic>
+                    <ImageView fitHeight="16" fitWidth="16">
+                        <Image url="@excluir.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button text="Editar"
+                    onAction="#editarProducao"
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white;">
+                <graphic>
+                    <ImageView fitHeight="16" fitWidth="16">
+                        <Image url="@editar.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </HBox>
+    </VBox>
+</VBox>
